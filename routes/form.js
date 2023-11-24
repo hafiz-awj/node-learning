@@ -1,15 +1,12 @@
 const express = require("express");
+// const path = require("path");
 
 const router = express.Router();
 router.get("/", (req, res) => {
-    res.send(`<h1>Admin Panel</h1>
-    <form action="/form/submit" method="POST">
-        <input name="adminName" />
-        <button>Submit</button>
-    </form>`);
+    res.render("form", {name: "Ali"});
 });
 router.post("/submit",(req, res) => {
-    res.send("Access Granted");
+    res.send(req.body.adminName);
 })
 
 module.exports = router;
